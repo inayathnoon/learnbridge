@@ -72,11 +72,29 @@ Tasks completed: {count}
 {anything the next developer needs to know}
 ```
 
-## Step 5 — Mark Linear Project Complete
+## Step 5 — Push to Git
+
+Commit and push all work to the remote repository before closing Linear.
+
+```bash
+git add -A
+git commit -m "chore: final project commit — all Linear tasks complete"
+git push origin HEAD
+```
+
+If push fails due to auth, use the GH CLI token:
+```bash
+git remote set-url origin https://$(gh auth token)@github.com/<org>/<repo>.git
+git push origin HEAD
+```
+
+Confirm the push succeeded before proceeding.
+
+## Step 6 — Mark Linear Project Complete
 
 MCP `user-linear` → mark project status as "Completed".
 
-## Step 6 — Report
+## Step 7 — Report
 
 ```
 🎉 Project Complete
