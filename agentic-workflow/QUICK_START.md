@@ -9,7 +9,7 @@ The Conductor agents in this directory run your execution workflow.
 Conductor: president   → scaffolding session → SCAFFOLDING.md
 Conductor: coach       → Linear tasks created from docs + scaffolding
 Conductor: player      → implement tasks one by one
-Conductor: review-task → review each completed task
+Conductor: refree      → push to git + mark done in Linear
 Conductor: finish      → all done, final sign-off
 ```
 
@@ -24,7 +24,7 @@ cd agentic-workflow
 ./start-agent.sh president
 ./start-agent.sh coach
 ./start-agent.sh player
-./start-agent.sh review-task
+./start-agent.sh refree
 ./start-agent.sh finisher
 ```
 
@@ -63,10 +63,10 @@ or for a specific task:
 Conductor: player:task TASK-ID
 ```
 
-### 6. Review completed work
+### 6. Push and close completed task
 
 ```
-Conductor: review-task
+Conductor: refree
 ```
 
 ### 7. When all tasks are done
@@ -82,5 +82,5 @@ Conductor: finish
 | president | `.president` | Scaffolding discussion → SCAFFOLDING.md |
 | coach | `.coach` | Creates Linear project + all tasks |
 | player | `.player` | Implements task, creates scaffolding on first run |
-| review-task | `.review-task` | Reviews completed task vs PRD |
+| refree | `.refree` | Pushes to git + marks done in Linear, asks to call finisher |
 | finisher | `.finish` | Final validation + DONE.md |
