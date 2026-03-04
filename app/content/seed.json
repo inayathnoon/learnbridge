@@ -1,0 +1,69 @@
+{
+  "topics": [
+    {
+      "title": "Simple Equations",
+      "slug": "simple-equations",
+      "order": 1,
+      "subsections": [
+        {
+          "title": "Finding the Unknown",
+          "slug": "finding-the-unknown",
+          "order": 1,
+          "walkthrough_steps": [
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "Imagine you have a box with some apples inside. You know there are 7 apples in total, and 3 are outside the box. How many are inside?"
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "We can write this as: 3 + ? = 7. The '?' is what we need to find — this is the unknown!"
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "In math, we use a letter like 'x' instead of '?'. So we write: 3 + x = 7"
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "To find x, we ask: what number plus 3 gives us 7? We can subtract: 7 - 3 = 4. So x = 4!"
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "Let's check: 3 + 4 = 7 ✓ Yes! The unknown value is 4. You just solved an equation!"
+            }
+          ],
+          "coaching_guide": "Ask your child: if I gave you 3 apples and now you have 7, how many did you have before? That's the same as 3 + x = 7. Let them say the number out loud. Then try with different numbers: 5 + x = 9. Let them use their fingers if they want — the goal is understanding the idea of a missing number, not mental math speed.",
+          "questions": [
+            {
+              "level": 1,
+              "content": "2 + ? = 5. What is the missing number?",
+              "options": ["2", "3", "4", "5"],
+              "correct_answer": "3",
+              "explanation": "We need a number that, when added to 2, gives 5. Count up from 2: 3, 4, 5 — that's 3 steps. So the answer is 3."
+            },
+            {
+              "level": 2,
+              "content": "? + 4 = 9. What is the missing number?",
+              "options": ["4", "5", "6", "3"],
+              "correct_answer": "5",
+              "explanation": "We need: ? + 4 = 9. Subtract 4 from 9: 9 - 4 = 5. So the missing number is 5."
+            },
+            {
+              "level": 3,
+              "content": "x + 6 = 14. What is x?",
+              "options": ["6", "7", "8", "9"],
+              "correct_answer": "8",
+              "explanation": "x + 6 = 14. To find x, subtract 6 from both sides: x = 14 - 6 = 8."
+            },
+            {
+              "level": 4,
+              "content": "If 2x + 3 = 11, what is x?",
+              "options": ["3", "4", "5", "6"],
+              "correct_answer": "4",
+              "explanation": "2x + 3 = 11. First subtract 3: 2x = 8. Then divide by 2: x = 4. Check: 2(4) + 3 = 8 + 3 = 11 ✓"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
