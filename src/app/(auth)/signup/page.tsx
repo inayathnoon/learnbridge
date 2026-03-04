@@ -1,8 +1,14 @@
-export default function SignupPage() {
+import { SignupForm } from "@/features/auth/components/SignupForm";
+
+type Props = {
+  searchParams: { error?: string };
+};
+
+export default function SignupPage({ searchParams }: Props) {
   return (
-    <main>
-      <h1>Sign up</h1>
-      {/* Signup form — implemented in auth feature task */}
-    </main>
+    <>
+      <h1 className="text-xl font-semibold mb-6 text-center">Create account</h1>
+      <SignupForm error={searchParams.error} />
+    </>
   );
 }
