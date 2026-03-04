@@ -96,5 +96,29 @@ Write using this structure:
 ```
 
 ## Handoff
+
 After `SCAFFOLDING.md` is complete:
-> Scaffolding complete. Run `Conductor: coach` to create Linear tasks.
+
+### Step 1 — Commit and push SCAFFOLDING.md
+
+```bash
+git add SCAFFOLDING.md
+git commit -m "docs: add scaffolding decisions"
+git push origin HEAD
+```
+
+If push fails due to auth, use the GH CLI token:
+```bash
+git remote set-url origin https://$(gh auth token)@github.com/<org>/<repo>.git
+git push origin HEAD
+```
+
+### Step 2 — Open a PR
+
+```bash
+gh pr create --title "Scaffolding decisions" --body "SCAFFOLDING.md filled in by President agent. Ready for Coach to create Linear tasks."
+```
+
+### Step 3 — Hand off to Coach
+
+> Scaffolding complete and PR opened. Run `Conductor: coach` to create Linear tasks.
