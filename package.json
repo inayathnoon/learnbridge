@@ -1,0 +1,34 @@
+{
+  "name": "learnbridge",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "next": "14",
+    "react": "18",
+    "react-dom": "18",
+    "@supabase/supabase-js": "latest",
+    "@supabase/ssr": "latest",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "typescript": "5",
+    "@types/react": "18",
+    "@types/node": "20",
+    "postcss": "latest",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "14",
+    "vitest": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@vitejs/plugin-react": "latest"
+  }
+}
