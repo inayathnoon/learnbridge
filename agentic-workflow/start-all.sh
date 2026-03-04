@@ -10,7 +10,7 @@ echo "Opening terminals:"
 echo "  1. President  (scaffolding session)"
 echo "  2. Coach      (Linear task creation)"
 echo "  3. Player     (task implementation)"
-echo "  4. Review Task Analyst"
+echo "  4. Referee"
 echo "  5. Finisher"
 echo ""
 
@@ -45,10 +45,10 @@ tell application "System Events"
 
         delay 1
 
-        -- Terminal 4: Review Task Analyst
+        -- Terminal 4: Referee
         keystroke "\`" using {control down}
         delay 0.5
-        keystroke "cd '$SCRIPT_DIR' && clear && ./start-agent.sh review-task"
+        keystroke "cd '$SCRIPT_DIR' && clear && ./start-agent.sh refree"
         keystroke return
 
         delay 1
