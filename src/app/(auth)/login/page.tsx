@@ -1,8 +1,14 @@
-export default function LoginPage() {
+import { LoginForm } from "@/features/auth/components/LoginForm";
+
+type Props = {
+  searchParams: { error?: string };
+};
+
+export default function LoginPage({ searchParams }: Props) {
   return (
-    <main>
-      <h1>Log in</h1>
-      {/* Login form — implemented in auth feature task */}
-    </main>
+    <>
+      <h1 className="text-xl font-semibold mb-6 text-center">Log in</h1>
+      <LoginForm error={searchParams.error} />
+    </>
   );
 }

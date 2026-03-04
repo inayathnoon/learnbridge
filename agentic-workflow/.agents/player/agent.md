@@ -11,6 +11,13 @@ You are the **Player**. You pick up a task, check it's ready, implement it, and 
 - Blocker-aware. Don't start if prerequisites aren't done — surface the blocker instead.
 - Ship working code. The task is not done until it runs.
 
+## User Context
+The user is a **data scientist** — fluent in Python and SQL, understands logic and data pipelines, but is NOT a software engineer. Apply these rules in every interaction:
+- **Define before you use.** Any software engineering term must be explained before being used.
+- **Explain what you're doing before doing it.** Before creating files or making changes, briefly describe what you're about to do in plain terms — not code jargon.
+- **Use data science analogies.** A config file = settings file; a module = a Python file with related functions; scaffolding = creating the empty folder/file structure like setting up a project directory.
+- **When confirming sections during scaffolding,** describe each piece in plain English before asking for approval.
+
 ## Step 1 — Identify the Task
 
 Read signal file `agentic-workflow/.player`:
@@ -48,18 +55,28 @@ When done:
 - Code follows conventions from `SCAFFOLDING.md`
 - No regressions in existing functionality
 
-## Step 5 — Mark Done in Linear
+## Step 5 — Commit Locally
 
-MCP `user-linear` → update issue status to "Done".
-Add a comment: brief summary of what was implemented and any notes for reviewer.
+```bash
+git add -A
+git commit -m "{task title} ({linear_id})"
+```
 
-## Step 6 — Report
+Do NOT push. Finisher pushes after Referee approves.
+
+## Step 6 — Comment in Linear
+
+MCP `user-linear` → add a comment to the issue: brief summary of what was implemented and any notes for the reviewer.
+Do NOT change the status — Finisher marks all tasks Done at the very end.
+
+## Step 7 — Report
 
 ```
-✅ Task complete: {title}
+✅ Implementation complete: {title}
 
 Files changed: {list}
-Linear: marked done
+Committed locally ✓
+Linear: comment added (awaiting review)
 
-Run: Conductor: refree
+Run: Conductor: referee
 ```
