@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useRef } from "react";
 import { QuizQuestion } from "../types";
 import {
   QuizStep,
@@ -40,16 +40,22 @@ export function useQuizEngine(questions: QuizQuestion[]): UseQuizEngineResult {
 
   const currentLevel = stepToLevel(step);
 
+  // Ref so the answer callback always captures the latest currentQuestion
+  const currentQuestionRef = useRef<QuizQuestion | null>(null);
+
   const currentQuestion = useMemo(() => {
     if (!isQuestionStep(step) || currentLevel === null) return null;
     if (questionCache[step]) return questionCache[step]!;
     return pickQuestion(questions, currentLevel);
   }, [step, currentLevel, questionCache, questions]);
 
+  // Keep ref in sync so answer() closure always sees the latest value
+  currentQuestionRef.current = currentQuestion;
+
   const answer = useCallback(
     (correct: boolean) => {
       const event = correct ? "answer_correct" : "answer_wrong";
-      setLastAnsweredQuestion(currentQuestion);
+      setLastAnsweredQuestion(currentQuestionRef.current);
       setStep((current) => {
         const next = transition(current, event);
         const nextLevel = stepToLevel(next);
