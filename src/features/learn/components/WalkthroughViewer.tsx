@@ -91,7 +91,7 @@ export function WalkthroughViewer({
   }
 
   return (
-    <div className="mx-auto max-w-2xl p-4 sm:p-8">
+    <div className="mx-auto max-w-2xl p-4 pb-28 sm:p-8 sm:pb-28">
       <h1 className="mb-2 text-2xl font-bold text-slate-800">
         {subsectionTitle}
       </h1>
@@ -102,35 +102,39 @@ export function WalkthroughViewer({
             Step {currentStep + 1} of {totalSteps}
           </p>
 
-          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            {walkthroughStep.image_url && (
-              <img
-                src={walkthroughStep.image_url}
-                alt={`Step ${currentStep + 1}`}
-                className="mb-6 w-full rounded-lg object-contain"
-              />
-            )}
-            <p className="text-lg leading-relaxed text-slate-700">
-              {walkthroughStep.caption}
-            </p>
+          <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+            <img
+              src={walkthroughStep.image_url ?? "/images/placeholder.svg"}
+              alt={`Step ${currentStep + 1}`}
+              className="w-full object-contain bg-slate-100"
+              style={{ maxHeight: "260px" }}
+            />
+            <div className="p-6">
+              <p className="text-lg leading-relaxed text-slate-700">
+                {walkthroughStep.caption}
+              </p>
+            </div>
           </div>
 
-          <div className="mt-6 flex justify-end">
-            {!isLastWalkthroughStep ? (
-              <button
-                onClick={() => setCurrentStep((s) => s + 1)}
-                className="rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 active:bg-blue-800"
-              >
-                Next
-              </button>
-            ) : (
-              <button
-                onClick={() => setQuizStarted(true)}
-                className="rounded-lg bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700 active:bg-green-800"
-              >
-                Start Quiz
-              </button>
-            )}
+          {/* Sticky next button */}
+          <div className="fixed bottom-0 left-0 right-0 border-t border-slate-200 bg-white px-4 py-4 sm:px-8">
+            <div className="mx-auto flex max-w-2xl justify-end">
+              {!isLastWalkthroughStep ? (
+                <button
+                  onClick={() => setCurrentStep((s) => s + 1)}
+                  className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 active:bg-blue-800"
+                >
+                  Next →
+                </button>
+              ) : (
+                <button
+                  onClick={() => setQuizStarted(true)}
+                  className="rounded-lg bg-green-600 px-8 py-3 font-semibold text-white hover:bg-green-700 active:bg-green-800"
+                >
+                  Start Quiz →
+                </button>
+              )}
+            </div>
           </div>
         </>
       ) : (
