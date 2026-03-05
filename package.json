@@ -17,7 +17,7 @@
     "react-dom": "18",
     "@supabase/supabase-js": "latest",
     "@supabase/ssr": "latest",
-    "tailwindcss": "latest"
+    "tailwindcss": "^3"
   },
   "devDependencies": {
     "typescript": "5",
