@@ -29,6 +29,8 @@ export type QuizQuestion = {
   correctIndex: number;
 };
 
+export type SessionOutcome = "completed" | "stuck" | "abandoned";
+
 export type QuizLevel = 1 | 2 | 3 | 4 | 5;
 
 export type QuizState =

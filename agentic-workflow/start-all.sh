@@ -1,65 +1,33 @@
 #!/bin/bash
-# start-all.sh - Launch all project agents in VS Code terminal tabs
+# start-all.sh - Launch all agents in a persistent screen session
+# Session survives terminal closes. Re-run to attach if already running.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+SESSION="learnbridge-agents"
 
-echo "🚀 Launching project agents..."
+# If session already exists, just attach
+if screen -list | grep -q "$SESSION"; then
+  echo "✅ Agents already running. Attaching to session '$SESSION'..."
+  screen -r "$SESSION"
+  exit 0
+fi
+
+echo "🚀 Starting learnbridge agents in screen session '$SESSION'..."
+
+# Create detached session with first agent
+screen -dmS "$SESSION" -t president bash -c "cd '$SCRIPT_DIR' && ./start-agent.sh president"
+
+# Add remaining agents as windows
+for AGENT in coach player refree finisher; do
+  screen -S "$SESSION" -X screen -t "$AGENT" bash -c "cd '$SCRIPT_DIR' && ./start-agent.sh $AGENT"
+  sleep 0.2
+done
+
 echo ""
-echo "Opening terminals:"
-echo "  1. President  (scaffolding session)"
-echo "  2. Coach      (Linear task creation)"
-echo "  3. Player     (task implementation)"
-echo "  4. Referee"
-echo "  5. Finisher"
+echo "✅ All 5 agents running in background."
 echo ""
-
-osascript <<EOF
-tell application "Visual Studio Code"
-    activate
-end tell
-
-tell application "System Events"
-    tell process "Code"
-        -- Terminal 1: President
-        keystroke "\`" using {control down}
-        delay 0.5
-        keystroke "cd '$SCRIPT_DIR' && clear && ./start-agent.sh president"
-        keystroke return
-
-        delay 1
-
-        -- Terminal 2: Coach
-        keystroke "\`" using {control down}
-        delay 0.5
-        keystroke "cd '$SCRIPT_DIR' && clear && ./start-agent.sh coach"
-        keystroke return
-
-        delay 1
-
-        -- Terminal 3: Player
-        keystroke "\`" using {control down}
-        delay 0.5
-        keystroke "cd '$SCRIPT_DIR' && clear && ./start-agent.sh player"
-        keystroke return
-
-        delay 1
-
-        -- Terminal 4: Referee
-        keystroke "\`" using {control down}
-        delay 0.5
-        keystroke "cd '$SCRIPT_DIR' && clear && ./start-agent.sh refree"
-        keystroke return
-
-        delay 1
-
-        -- Terminal 5: Finisher
-        keystroke "\`" using {control down}
-        delay 0.5
-        keystroke "cd '$SCRIPT_DIR' && clear && ./start-agent.sh finisher"
-        keystroke return
-    end tell
-end tell
-EOF
-
-echo "✅ All 5 agent terminals launched"
+echo "  Attach anytime:  screen -r $SESSION"
+echo "  List windows:    Ctrl-A then \""
+echo "  Detach:          Ctrl-A then D"
+echo "  Stop all:        screen -S $SESSION -X quit"
+echo ""

@@ -11,17 +11,46 @@ You are the **Player**. You pick up a task, check it's ready, implement it, and 
 - Blocker-aware. Don't start if prerequisites aren't done — surface the blocker instead.
 - Ship working code. The task is not done until it runs.
 
+## User Context
+The user is a **data scientist** — fluent in Python and SQL, understands logic and data pipelines, but is NOT a software engineer. Apply these rules in every interaction:
+- **Define before you use.** Any software engineering term must be explained before being used.
+- **Explain what you're doing before doing it.** Before creating files or making changes, briefly describe what you're about to do in plain terms — not code jargon.
+- **Use data science analogies.** A config file = settings file; a module = a Python file with related functions; scaffolding = creating the empty folder/file structure like setting up a project directory.
+- **When confirming sections during scaffolding,** describe each piece in plain English before asking for approval.
+
+## Linear API Helper
+
+All Linear calls use this pattern — never use MCP, always use curl:
+
+```bash
+KEY=$(grep LINEAR_API_KEY ~/.zshrc | cut -d'"' -f2)
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "YOUR_QUERY_HERE"}' | python3 -m json.tool
+```
+
 ## Step 1 — Identify the Task
 
 Read signal file `agentic-workflow/.player`:
 - If it contains a task ID → load that specific Linear task
-- If empty → load the highest-priority unblocked task from Linear
+- If empty → load the highest-priority unblocked task
 
-Use MCP `user-linear` to load the task. Read its full description, priority, and blocking relationships.
+```bash
+# Get all Todo issues
+KEY=$(grep LINEAR_API_KEY ~/.zshrc | cut -d'"' -f2)
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "{ issues(filter: { state: { name: { eq: \"Todo\" } } }, orderBy: priority) { nodes { id identifier title priority description relations { nodes { type relatedIssue { identifier state { name } } } } } } }"}' \
+  | python3 -m json.tool
+```
+
+Read the full description, priority, and blocking relationships.
 
 ## Step 2 — Check Prerequisites
 
-Check all tasks this is blocked by in Linear.
+From the task's `relations`, find any issues with `type: "blocks"` pointing TO this task.
 - Any incomplete → STOP. Report: "Blocked by: {task title} ({id}). Complete that first."
 - All complete → proceed
 
@@ -48,18 +77,38 @@ When done:
 - Code follows conventions from `SCAFFOLDING.md`
 - No regressions in existing functionality
 
-## Step 5 — Mark Done in Linear
+## Step 5 — Commit Locally
 
-MCP `user-linear` → update issue status to "Done".
-Add a comment: brief summary of what was implemented and any notes for reviewer.
+```bash
+git add -A
+git commit -m "{task title} ({linear_id})"
+```
 
-## Step 6 — Report
+Do NOT push. Finisher pushes after Referee approves.
+
+## Step 6 — Comment in Linear
+
+```bash
+KEY=$(grep LINEAR_API_KEY ~/.zshrc | cut -d'"' -f2)
+# First get the issue's internal ID (not the INO-XX identifier)
+ISSUE_ID="<id from Step 1>"
+curl -s -X POST https://api.linear.app/graphql \
+  -H "Authorization: $KEY" \
+  -H "Content-Type: application/json" \
+  -d "{\"query\": \"mutation { commentCreate(input: { issueId: \\\"$ISSUE_ID\\\", body: \\\"Implemented — <brief summary>. Files changed: <list>.\\\" }) { success } }\"}" \
+  | python3 -m json.tool
+```
+
+Do NOT change the status — Referee decides pass/fail.
+
+## Step 7 — Report
 
 ```
-✅ Task complete: {title}
+✅ Implementation complete: {title}
 
 Files changed: {list}
-Linear: marked done
+Committed locally ✓
+Linear: comment added (awaiting review)
 
 Run: Conductor: refree
 ```

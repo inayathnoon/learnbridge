@@ -19,6 +19,6 @@ See agentic-workflow/.agents/ for agent configurations.
 Conductor: president   → discuss scaffolding → writes SCAFFOLDING.md
 Conductor: coach       → reads 4 docs + scaffolding → creates Linear tasks
 Conductor: player      → picks up task → implements → marks done in Linear
-Conductor: refree      → pushes to git + marks done in Linear, then asks to call finisher
+Conductor: refree      → marks done in Linear, then asks to call finisher
 Conductor: finish      → all done → final sign-off
 ```
