@@ -81,7 +81,7 @@ export function WalkthroughViewer({
 
   if (totalSteps === 0) {
     return (
-      <div className="mx-auto max-w-2xl p-8">
+      <div className="mx-auto max-w-2xl p-4 sm:p-8">
         <h1 className="mb-4 text-2xl font-bold text-slate-800">
           {subsectionTitle}
         </h1>
@@ -91,7 +91,7 @@ export function WalkthroughViewer({
   }
 
   return (
-    <div className="mx-auto max-w-2xl p-8">
+    <div className="mx-auto max-w-2xl p-4 sm:p-8">
       <h1 className="mb-2 text-2xl font-bold text-slate-800">
         {subsectionTitle}
       </h1>

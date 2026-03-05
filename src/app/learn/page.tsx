@@ -74,7 +74,7 @@ export default async function LearnIndexPage() {
     : null;
 
   return (
-    <main className="mx-auto max-w-2xl p-8">
+    <main className="mx-auto max-w-2xl p-4 sm:p-8">
       <h1 className="mb-2 text-2xl font-bold text-slate-800">Learn</h1>
 
       {continueUrl && (

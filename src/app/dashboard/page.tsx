@@ -103,7 +103,7 @@ export default async function DashboardPage() {
   }));
 
   return (
-    <main className="mx-auto max-w-2xl p-8">
+    <main className="mx-auto max-w-2xl p-4 sm:p-8">
       <h1 className="mb-8 text-2xl font-bold text-slate-800">Progress</h1>
 
       <section className="mb-8">

@@ -27,7 +27,7 @@ export function QuizCard({
 }: Props) {
   if (step === "complete") {
     return (
-      <div className="rounded-xl border border-green-200 bg-green-50 p-8 text-center">
+      <div className="rounded-xl border border-green-200 bg-green-50 p-5 sm:p-8 text-center">
         <h2 className="mb-2 text-2xl font-bold text-green-700">Great work!</h2>
         <p className="text-green-600">You&apos;ve completed this section.</p>
       </div>
@@ -36,7 +36,7 @@ export function QuizCard({
 
   if (step === "stuck") {
     return (
-      <div className="rounded-xl border border-orange-200 bg-orange-50 p-8 text-center">
+      <div className="rounded-xl border border-orange-200 bg-orange-50 p-5 sm:p-8 text-center">
         <h2 className="mb-2 text-xl font-bold text-orange-700">
           That&apos;s a tricky one!
         </h2>
@@ -49,7 +49,7 @@ export function QuizCard({
 
   if (step === "l3_explain" || step === "l4_explain") {
     return (
-      <div className="rounded-xl border border-blue-200 bg-blue-50 p-8">
+      <div className="rounded-xl border border-blue-200 bg-blue-50 p-5 sm:p-8">
         <h2 className="mb-4 text-xl font-bold text-blue-700">
           Let&apos;s review
         </h2>
@@ -68,7 +68,7 @@ export function QuizCard({
 
   if (!question) {
     return (
-      <div className="rounded-xl border border-slate-200 bg-white p-8">
+      <div className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8">
         <p className="text-slate-500">Loading question…</p>
       </div>
     );
