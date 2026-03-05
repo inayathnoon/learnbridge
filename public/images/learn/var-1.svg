@@ -1,0 +1,22 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#eff6ff"/>
+  <text x="240" y="28" text-anchor="middle" font-size="14" fill="#64748b">Sometimes we don't know the exact number...</text>
+  <!-- Mystery box -->
+  <rect x="155" y="45" width="170" height="120" rx="16" fill="#dbeafe" stroke="#93c5fd" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="240" y="128" text-anchor="middle" font-size="72" font-weight="bold" fill="#3b82f6">?</text>
+  <!-- Arrow -->
+  <path d="M 336 105 L 368 105" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#a1)"/>
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- Variable badge -->
+  <rect x="373" y="87" width="90" height="36" rx="10" fill="#3b82f6"/>
+  <text x="418" y="111" text-anchor="middle" font-size="24" font-weight="bold" fill="white">x</text>
+  <text x="418" y="142" text-anchor="middle" font-size="11" fill="#64748b">variable</text>
+  <text x="240" y="192" text-anchor="middle" font-size="11" fill="#94a3b8">unknown number</text>
+  <!-- Bottom -->
+  <text x="240" y="222" text-anchor="middle" font-size="16" font-weight="600" fill="#1d4ed8">A letter that stands for an unknown number</text>
+  <text x="240" y="247" text-anchor="middle" font-size="13" fill="#475569">is called a variable</text>
+</svg>

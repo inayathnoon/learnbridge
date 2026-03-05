@@ -1,0 +1,20 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#faf5ff"/>
+  <text x="240" y="28" text-anchor="middle" font-size="14" fill="#64748b">The golden rule of equations</text>
+  <!-- Rule box -->
+  <rect x="30" y="46" width="420" height="90" rx="18" fill="#7c3aed"/>
+  <text x="240" y="84" text-anchor="middle" font-size="16" font-weight="600" fill="#ede9fe">Whatever you do to one side...</text>
+  <text x="240" y="120" text-anchor="middle" font-size="16" font-weight="600" fill="white">do the same to the other side</text>
+  <!-- Examples row -->
+  <rect x="30" y="154" width="120" height="56" rx="10" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="90" y="177" text-anchor="middle" font-size="12" fill="#64748b">add 4 to left?</text>
+  <text x="90" y="200" text-anchor="middle" font-size="13" font-weight="600" fill="#1d4ed8">add 4 to right</text>
+  <rect x="180" y="154" width="120" height="56" rx="10" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+  <text x="240" y="177" text-anchor="middle" font-size="12" fill="#64748b">subtract 3 left?</text>
+  <text x="240" y="200" text-anchor="middle" font-size="13" font-weight="600" fill="#15803d">subtract 3 right</text>
+  <rect x="330" y="154" width="120" height="56" rx="10" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="390" y="177" text-anchor="middle" font-size="12" fill="#64748b">divide by 2 left?</text>
+  <text x="390" y="200" text-anchor="middle" font-size="13" font-weight="600" fill="#be185d">divide by 2 right</text>
+  <!-- Bottom -->
+  <text x="240" y="244" text-anchor="middle" font-size="13" fill="#64748b">This rule always keeps the equation balanced ⚖️</text>
+</svg>

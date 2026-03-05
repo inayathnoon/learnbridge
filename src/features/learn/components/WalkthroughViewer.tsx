@@ -150,6 +150,7 @@ export function WalkthroughViewer({
             onAnswer={handleAnswer}
             onAdvance={advance}
             explanationText={lastAnsweredQuestion?.explanation}
+            conceptImageUrl={steps[0]?.image_url}
             nextHref={nextHref}
             nextTitle={nextTitle}
           />

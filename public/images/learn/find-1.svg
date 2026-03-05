@@ -1,0 +1,22 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#fefce8"/>
+  <text x="240" y="26" text-anchor="middle" font-size="14" fill="#64748b">7 apples in total — 3 are outside the box</text>
+  <!-- 3 apples outside -->
+  <text x="55" y="118" text-anchor="middle" font-size="44">🍎</text>
+  <text x="110" y="118" text-anchor="middle" font-size="44">🍎</text>
+  <text x="165" y="118" text-anchor="middle" font-size="44">🍎</text>
+  <text x="110" y="155" text-anchor="middle" font-size="13" font-weight="600" fill="#92400e">3 outside</text>
+  <!-- Plus -->
+  <text x="215" y="118" text-anchor="middle" font-size="36" font-weight="bold" fill="#64748b">+</text>
+  <!-- Box with ? -->
+  <rect x="240" y="68" width="120" height="96" rx="12" fill="#fde68a" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="7,4"/>
+  <text x="300" y="128" text-anchor="middle" font-size="48" font-weight="bold" fill="#b45309">?</text>
+  <text x="300" y="180" text-anchor="middle" font-size="13" font-weight="600" fill="#92400e">inside the box</text>
+  <!-- Equals + 7 -->
+  <text x="378" y="118" text-anchor="middle" font-size="36" font-weight="bold" fill="#64748b">=</text>
+  <text x="445" y="125" text-anchor="middle" font-size="48" font-weight="bold" fill="#059669">7</text>
+  <text x="445" y="160" text-anchor="middle" font-size="13" font-weight="600" fill="#064e3b">total</text>
+  <!-- Bottom -->
+  <text x="240" y="213" text-anchor="middle" font-size="17" font-weight="bold" fill="#1e40af">3 + ? = 7</text>
+  <text x="240" y="242" text-anchor="middle" font-size="13" fill="#64748b">The ? is what we need to find — the unknown!</text>
+</svg>

@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
+
+export const dynamic = "force-dynamic";
 import { SessionsTable } from "@/features/dashboard/components/SessionsTable";
 import { ScoresSummary } from "@/features/dashboard/components/ScoresSummary";
 import { AlertsList } from "@/features/dashboard/components/AlertsList";

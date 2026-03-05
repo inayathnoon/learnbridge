@@ -1,0 +1,23 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#faf5ff"/>
+  <text x="240" y="26" text-anchor="middle" font-size="14" fill="#64748b">A variable can be any letter</text>
+  <!-- Circle x -->
+  <circle cx="72" cy="108" r="48" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <text x="72" y="120" text-anchor="middle" font-size="40" font-weight="bold" fill="#2563eb">x</text>
+  <text x="72" y="172" text-anchor="middle" font-size="12" fill="#64748b">= some number</text>
+  <!-- Circle y -->
+  <circle cx="192" cy="108" r="48" fill="#fce7f3" stroke="#f9a8d4" stroke-width="2"/>
+  <text x="192" y="120" text-anchor="middle" font-size="40" font-weight="bold" fill="#db2777">y</text>
+  <text x="192" y="172" text-anchor="middle" font-size="12" fill="#64748b">= some number</text>
+  <!-- Circle n -->
+  <circle cx="312" cy="108" r="48" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="312" y="120" text-anchor="middle" font-size="40" font-weight="bold" fill="#16a34a">n</text>
+  <text x="312" y="172" text-anchor="middle" font-size="12" fill="#64748b">= some number</text>
+  <!-- Circle a -->
+  <circle cx="432" cy="108" r="48" fill="#fef3c7" stroke="#fde68a" stroke-width="2"/>
+  <text x="432" y="120" text-anchor="middle" font-size="40" font-weight="bold" fill="#d97706">a</text>
+  <text x="432" y="172" text-anchor="middle" font-size="12" fill="#64748b">= some number</text>
+  <!-- Bottom -->
+  <text x="240" y="215" text-anchor="middle" font-size="15" font-weight="600" fill="#7c3aed">Just a placeholder for a number we haven't found yet</text>
+  <text x="240" y="240" text-anchor="middle" font-size="13" fill="#475569">We pick a letter to make it easy to write</text>
+</svg>

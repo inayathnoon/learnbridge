@@ -23,11 +23,18 @@ type UseQuizEngineResult = {
 
 function pickQuestion(
   questions: QuizQuestion[],
-  level: number
+  level: number,
+  excludeIds: Set<string>
 ): QuizQuestion | null {
-  const pool = questions.filter((q) => q.level === level);
-  if (!pool.length) return null;
-  return pool[Math.floor(Math.random() * pool.length)];
+  const pool = questions.filter(
+    (q) => q.level === level && !excludeIds.has(q.id)
+  );
+  // Fallback to full level pool if every question has been seen
+  const candidates = pool.length
+    ? pool
+    : questions.filter((q) => q.level === level);
+  if (!candidates.length) return null;
+  return candidates[Math.floor(Math.random() * candidates.length)];
 }
 
 export function useQuizEngine(questions: QuizQuestion[]): UseQuizEngineResult {
@@ -40,29 +47,32 @@ export function useQuizEngine(questions: QuizQuestion[]): UseQuizEngineResult {
 
   const currentLevel = stepToLevel(step);
 
-  // Ref so the answer callback always captures the latest currentQuestion
+  // Every question ID shown this session — ensures retry never repeats a seen question
+  const shownIdsRef = useRef<Set<string>>(new Set());
+  // Ref so answer() closure always sees the latest currentQuestion
   const currentQuestionRef = useRef<QuizQuestion | null>(null);
 
   const currentQuestion = useMemo(() => {
     if (!isQuestionStep(step) || currentLevel === null) return null;
     if (questionCache[step]) return questionCache[step]!;
-    return pickQuestion(questions, currentLevel);
+    return pickQuestion(questions, currentLevel, shownIdsRef.current);
   }, [step, currentLevel, questionCache, questions]);
 
-  // Keep ref in sync so answer() closure always sees the latest value
   currentQuestionRef.current = currentQuestion;
 
   const answer = useCallback(
     (correct: boolean) => {
       const event = correct ? "answer_correct" : "answer_wrong";
-      setLastAnsweredQuestion(currentQuestionRef.current);
+      const answeredQuestion = currentQuestionRef.current;
+      if (answeredQuestion) shownIdsRef.current.add(answeredQuestion.id);
+      setLastAnsweredQuestion(answeredQuestion);
       setStep((current) => {
         const next = transition(current, event);
         const nextLevel = stepToLevel(next);
         if (isQuestionStep(next) && nextLevel !== null) {
           setQuestionCache((cache) => {
             if (cache[next]) return cache;
-            const q = pickQuestion(questions, nextLevel);
+            const q = pickQuestion(questions, nextLevel, shownIdsRef.current);
             return q ? { ...cache, [next]: q } : cache;
           });
         }
@@ -79,7 +89,7 @@ export function useQuizEngine(questions: QuizQuestion[]): UseQuizEngineResult {
       if (isQuestionStep(next) && nextLevel !== null) {
         setQuestionCache((cache) => {
           if (cache[next]) return cache;
-          const q = pickQuestion(questions, nextLevel);
+          const q = pickQuestion(questions, nextLevel, shownIdsRef.current);
           return q ? { ...cache, [next]: q } : cache;
         });
       }
