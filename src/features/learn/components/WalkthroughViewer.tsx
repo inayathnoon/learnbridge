@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSession } from "@/features/learn/hooks/useSession";
 import { useQuizEngine } from "@/features/learn/hooks/useQuizEngine";
 import { QuizCard } from "./QuizCard";
 import { QuizQuestion } from "../types";
+import { createQuestionAttempt } from "@/lib/db/question-attempts";
+import { stepToLevel } from "../quiz-state-machine";
 
 type WalkthroughStep = {
   image_url?: string;
@@ -29,7 +31,10 @@ export function WalkthroughViewer({
   const [currentStep, setCurrentStep] = useState(0);
   const [quizStarted, setQuizStarted] = useState(false);
 
-  const { markCompleted, markStuck } = useSession(familyId, subsectionId);
+  const { sessionId, markCompleted, markStuck } = useSession(
+    familyId,
+    subsectionId
+  );
   const {
     step: quizStep,
     currentQuestion,
@@ -37,19 +42,31 @@ export function WalkthroughViewer({
     advance,
   } = useQuizEngine(questions);
 
-  function handleAnswer(correct: boolean) {
+  // Sync terminal quiz states to session outcome (once)
+  useEffect(() => {
+    if (quizStep === "complete") markCompleted().catch(() => {});
+    if (quizStep === "stuck") markStuck().catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [quizStep]);
+
+  function handleAnswer(correct: boolean, selectedIndex: number) {
+    // Persist attempt before advancing state
+    if (sessionId && currentQuestion) {
+      const level = stepToLevel(quizStep) ?? currentQuestion.level;
+      createQuestionAttempt({
+        sessionId,
+        questionId: currentQuestion.id,
+        levelAttempted: level,
+        answerGiven: selectedIndex,
+        correct,
+      }).catch(() => {});
+    }
     answer(correct);
-    // Check the state after the next tick via the resolved step
-    // (outcome sync happens via useEffect in parent on quizStep change)
   }
 
   const walkthroughStep = steps[currentStep];
   const isLastWalkthroughStep = currentStep === steps.length - 1;
   const totalSteps = steps.length;
-
-  // Sync terminal quiz outcomes to session
-  if (quizStep === "complete") markCompleted().catch(() => {});
-  if (quizStep === "stuck") markStuck().catch(() => {});
 
   if (totalSteps === 0) {
     return (

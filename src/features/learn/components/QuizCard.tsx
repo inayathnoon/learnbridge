@@ -6,7 +6,7 @@ import { QuizStep } from "../hooks/useQuizEngine";
 type Props = {
   step: QuizStep;
   question: QuizQuestion | null;
-  onAnswer: (correct: boolean) => void;
+  onAnswer: (correct: boolean, selectedIndex: number) => void;
   onAdvance: () => void;
   explanationText?: string;
 };
@@ -88,7 +88,7 @@ export function QuizCard({
         {question.options.map((option, i) => (
           <button
             key={i}
-            onClick={() => onAnswer(i === question.correctIndex)}
+            onClick={() => onAnswer(i === question.correctIndex, i)}
             className="rounded-lg border border-slate-200 px-4 py-3 text-left text-slate-700 hover:border-slate-300 hover:bg-slate-50 active:bg-slate-100"
           >
             {option}
