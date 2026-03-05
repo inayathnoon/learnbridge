@@ -19,6 +19,8 @@ type Props = {
   steps: WalkthroughStep[];
   questions: QuizQuestion[];
   familyId: string;
+  nextHref: string | null;
+  nextTitle: string | null;
 };
 
 export function WalkthroughViewer({
@@ -27,6 +29,8 @@ export function WalkthroughViewer({
   steps,
   questions,
   familyId,
+  nextHref,
+  nextTitle,
 }: Props) {
   const [currentStep, setCurrentStep] = useState(0);
   const [quizStarted, setQuizStarted] = useState(false);
@@ -146,6 +150,8 @@ export function WalkthroughViewer({
             onAnswer={handleAnswer}
             onAdvance={advance}
             explanationText={lastAnsweredQuestion?.explanation}
+            nextHref={nextHref}
+            nextTitle={nextTitle}
           />
         </div>
       )}

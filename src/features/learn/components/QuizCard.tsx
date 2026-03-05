@@ -9,6 +9,8 @@ type Props = {
   onAnswer: (correct: boolean, selectedIndex: number) => void;
   onAdvance: () => void;
   explanationText?: string;
+  nextHref?: string | null;
+  nextTitle?: string | null;
 };
 
 const LEVEL_LABEL: Record<number, string> = {
@@ -24,12 +26,32 @@ export function QuizCard({
   onAnswer,
   onAdvance,
   explanationText,
+  nextHref,
+  nextTitle,
 }: Props) {
   if (step === "complete") {
     return (
-      <div className="rounded-xl border border-green-200 bg-green-50 p-5 sm:p-8 text-center">
+      <div className="rounded-xl border border-green-200 bg-green-50 p-6 sm:p-8 text-center">
+        <div className="mb-1 text-4xl">🎉</div>
         <h2 className="mb-2 text-2xl font-bold text-green-700">Great work!</h2>
-        <p className="text-green-600">You&apos;ve completed this section.</p>
+        <p className="mb-6 text-green-600">You&apos;ve completed this section.</p>
+        {nextHref && nextTitle ? (
+          <a
+            href={nextHref}
+            className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700 active:bg-green-800"
+          >
+            <span>Next: {nextTitle}</span>
+            <span>→</span>
+          </a>
+        ) : (
+          <a
+            href="/learn"
+            className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700 active:bg-green-800"
+          >
+            <span>Back to all lessons</span>
+            <span>→</span>
+          </a>
+        )}
       </div>
     );
   }
