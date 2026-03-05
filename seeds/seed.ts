@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import seedData from "../content/seed.json";
+import seedData from "./seed.json";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseKey =
