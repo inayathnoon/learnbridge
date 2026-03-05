@@ -18,40 +18,40 @@ The user is a **data scientist** — fluent in Python and SQL, understands logic
 - **Use data science analogies.** A config file = settings file; a module = a Python file with related functions; scaffolding = creating the empty folder/file structure like setting up a project directory.
 - **When confirming sections during scaffolding,** describe each piece in plain English before asking for approval.
 
-## Linear API Helper
-
-All Linear calls use this pattern — never use MCP, always use curl:
+## Linear Access
 
 ```bash
 KEY=$(grep LINEAR_API_KEY ~/.zshrc | cut -d'"' -f2)
-curl -s -X POST https://api.linear.app/graphql \
-  -H "Authorization: $KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "YOUR_QUERY_HERE"}' | python3 -m json.tool
+
+linear() {
+  curl -s -X POST https://api.linear.app/graphql \
+    -H "Authorization: $KEY" \
+    -H "Content-Type: application/json" \
+    -d "$1" | python3 -m json.tool
+}
 ```
 
 ## Step 1 — Identify the Task
 
 Read signal file `agentic-workflow/.player`:
 - If it contains a task ID → load that specific Linear task
-- If empty → load the highest-priority unblocked task
+- If empty → load the highest-priority unblocked task from Linear
 
 ```bash
-# Get all Todo issues
-KEY=$(grep LINEAR_API_KEY ~/.zshrc | cut -d'"' -f2)
-curl -s -X POST https://api.linear.app/graphql \
-  -H "Authorization: $KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "{ issues(filter: { state: { name: { eq: \"Todo\" } } }, orderBy: priority) { nodes { id identifier title priority description relations { nodes { type relatedIssue { identifier state { name } } } } } } }"}' \
-  | python3 -m json.tool
+# Get all open issues for this project
+linear '{"query": "{ issues(filter: { project: { id: { eq: \"PROJECT_ID\" } }, state: { type: { neq: \"completed\" } } }) { nodes { id identifier title priority state { name } } } }"}'
 ```
 
-Read the full description, priority, and blocking relationships.
+Read the full description, priority, and blocking relationships of the chosen task.
 
 ## Step 2 — Check Prerequisites
 
-From the task's `relations`, find any issues with `type: "blocks"` pointing TO this task.
-- Any incomplete → STOP. Report: "Blocked by: {task title} ({id}). Complete that first."
+```bash
+# Get blocking relations for the task
+linear '{"query": "{ issue(id: \"ISSUE_ID\") { relations { nodes { relatedIssue { id identifier title state { name } } type } } } }"}'
+```
+
+- Any blocking task incomplete → STOP. Report: "Blocked by: {task title} ({id}). Complete that first."
 - All complete → proceed
 
 ## Step 3 — Is This the First Task?
@@ -89,17 +89,11 @@ Do NOT push. Finisher pushes after Referee approves.
 ## Step 6 — Comment in Linear
 
 ```bash
-KEY=$(grep LINEAR_API_KEY ~/.zshrc | cut -d'"' -f2)
-# First get the issue's internal ID (not the INO-XX identifier)
-ISSUE_ID="<id from Step 1>"
-curl -s -X POST https://api.linear.app/graphql \
-  -H "Authorization: $KEY" \
-  -H "Content-Type: application/json" \
-  -d "{\"query\": \"mutation { commentCreate(input: { issueId: \\\"$ISSUE_ID\\\", body: \\\"Implemented — <brief summary>. Files changed: <list>.\\\" }) { success } }\"}" \
-  | python3 -m json.tool
+linear '{"query": "mutation { commentCreate(input: { issueId: \"ISSUE_ID\", body: \"YOUR COMMENT\" }) { success } }"}'
 ```
 
-Do NOT change the status — Referee decides pass/fail.
+Comment should include: brief summary of what was implemented and any notes for the reviewer.
+Do NOT change the status — Finisher marks all tasks Done at the very end.
 
 ## Step 7 — Report
 
@@ -110,5 +104,5 @@ Files changed: {list}
 Committed locally ✓
 Linear: comment added (awaiting review)
 
-Run: Conductor: refree
+Run: Conductor: referee
 ```

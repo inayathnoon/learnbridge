@@ -20,18 +20,21 @@ The user is a **data scientist** — fluent in Python and SQL, understands logic
 
 ## Prerequisites
 - `SCAFFOLDING.md` must exist and have status "complete"
-- `LINEAR_API_KEY` must be set in `~/.zshrc`
+- `LINEAR_API_KEY` set in `~/.zshrc`
+- `LINEAR_TEAM_ID` set in `~/.zshrc`
 
-## Linear API Helper
-
-All Linear calls use this pattern — never use MCP, always use curl:
+## Linear Access
 
 ```bash
 KEY=$(grep LINEAR_API_KEY ~/.zshrc | cut -d'"' -f2)
-curl -s -X POST https://api.linear.app/graphql \
-  -H "Authorization: $KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "YOUR_QUERY_HERE"}' | python3 -m json.tool
+TEAM_ID=$(grep LINEAR_TEAM_ID ~/.zshrc | cut -d'"' -f2)
+
+linear() {
+  curl -s -X POST https://api.linear.app/graphql \
+    -H "Authorization: $KEY" \
+    -H "Content-Type: application/json" \
+    -d "$1" | python3 -m json.tool
+}
 ```
 
 ## Your Input
@@ -43,70 +46,48 @@ Read ALL of these:
 
 ## Process
 
-### Step 1 — Get Team ID
+### Step 1 — Create Linear Project
 
 ```bash
-KEY=$(grep LINEAR_API_KEY ~/.zshrc | cut -d'"' -f2)
-curl -s -X POST https://api.linear.app/graphql \
-  -H "Authorization: $KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "{ teams { nodes { id key name } } }"}' | python3 -m json.tool
+linear '{"query": "mutation { projectCreate(input: { name: \"PROJECT_NAME\", description: \"DESCRIPTION\", teamIds: [\"TEAM_ID\"] }) { project { id url } } }"}'
 ```
 
-Save the team ID — you'll use it in every create call.
+Save the returned `project.id` — you'll need it for all subsequent calls.
 
-### Step 2 — Create Linear Project
+### Step 2 — Create Milestones
+
+One milestone per phase from BUILD_PLAN.md:
 
 ```bash
-curl -s -X POST https://api.linear.app/graphql \
-  -H "Authorization: $KEY" \
-  -H "Content-Type: application/json" \
-  -d "{\"query\": \"mutation { projectCreate(input: { name: \\\"PROJECT_NAME\\\", description: \\\"ONE_LINE_DESC\\\", teamIds: [\\\"TEAM_ID\\\"] }) { project { id name } } }\"}" \
-  | python3 -m json.tool
+linear '{"query": "mutation { projectMilestoneCreate(input: { name: \"MILESTONE_NAME\", projectId: \"PROJECT_ID\" }) { projectMilestone { id } } }"}'
 ```
 
-### Step 3 — Get Workflow States
+Save each milestone ID.
 
-```bash
-curl -s -X POST https://api.linear.app/graphql \
-  -H "Authorization: $KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "{ workflowStates { nodes { id name type } } }"}' | python3 -m json.tool
-```
-
-Note the "Todo" state ID for creating issues.
-
-### Step 4 — Create All Issues
+### Step 3 — Create All Issues
 
 For every task in every phase of BUILD_PLAN.md, create two issues — the implementation task and its paired test task:
 
 **Implementation issue:**
 ```bash
-curl -s -X POST https://api.linear.app/graphql \
-  -H "Authorization: $KEY" \
-  -H "Content-Type: application/json" \
-  -d "{\"query\": \"mutation { issueCreate(input: { title: \\\"TITLE\\\", description: \\\"DESCRIPTION\\\", teamId: \\\"TEAM_ID\\\", priority: PRIORITY_NUMBER, stateId: \\\"TODO_STATE_ID\\\" }) { issue { id identifier } } }\"}" \
-  | python3 -m json.tool
+linear '{"query": "mutation { issueCreate(input: { title: \"TITLE\", description: \"DESCRIPTION\", teamId: \"TEAM_ID\", priority: PRIORITY, projectId: \"PROJECT_ID\", projectMilestoneId: \"MILESTONE_ID\" }) { issue { id identifier } } }"}'
 ```
-Priority: 1=urgent, 2=high, 3=medium, 4=low
+
+Priority values: `1` = urgent, `2` = high, `3` = normal, `4` = low
 
 **Paired test issue** (one per implementation task):
 - Title: `"Test: {implementation task title}"`
-- Description: what to test — key behaviours, edge cases, expected outcomes. Specific enough that Player can write tests without questions.
-- Same priority and team
+- Description: what to test — key behaviours, edge cases, expected outcomes. Specific enough that Player can write tests without asking questions.
+- Same priority and milestone as the implementation task
 
 **Special tasks to always add:**
-- "Create project scaffolding from SCAFFOLDING.md" (priority 2, no prerequisites)
+- `"Create project scaffolding from SCAFFOLDING.md"` (Phase 1, priority 2, no prerequisites)
+- One task per dependency group from SCAFFOLDING.md
 
-### Step 5 — Wire Prerequisites
+### Step 4 — Wire Prerequisites
 
 ```bash
-# Block issue B until issue A is done
-curl -s -X POST https://api.linear.app/graphql \
-  -H "Authorization: $KEY" \
-  -H "Content-Type: application/json" \
-  -d "{\"query\": \"mutation { issueRelationCreate(input: { issueId: \\\"B_ID\\\", relatedIssueId: \\\"A_ID\\\", type: blocks }) { issueRelation { id } } }\"}" \
-  | python3 -m json.tool
+linear '{"query": "mutation { issueRelationCreate(input: { issueId: \"BLOCKED_ID\", relatedIssueId: \"BLOCKING_ID\", type: \"blocks\" }) { success } }"}'
 ```
 
 Rules:
@@ -114,13 +95,14 @@ Rules:
 - "Create scaffolding" blocks all implementation tasks
 - Each test task is blocked by its paired implementation task
 
-### Step 6 — Report
+### Step 5 — Report
 
 ```
 ✅ Coach Complete
 
 Project: {linear_url}
-Issues created: {count} ({impl_count} tasks + {test_count} test tasks)
+Milestones: {count}
+Issues created: {count} ({implementation_count} tasks + {test_count} test tasks)
   Phase 1: {count} tasks
   Phase 2: {count} tasks
   ...
