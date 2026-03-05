@@ -51,7 +51,12 @@ export async function signup(formData: FormData) {
   const whatsappNumber = formData.get("whatsappNumber") as string;
 
   const supabase = getSupabase();
-  const { data, error } = await supabase.auth.signUp({ email, password });
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3001";
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: { emailRedirectTo: `${appUrl}/auth/callback` },
+  });
 
   if (error || !data.user) {
     redirect(
