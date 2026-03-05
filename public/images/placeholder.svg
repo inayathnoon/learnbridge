@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300">
+  <rect width="600" height="300" fill="#f1f5f9" rx="12"/>
+  <rect x="220" y="80" width="160" height="140" fill="#cbd5e1" rx="8"/>
+  <circle cx="270" cy="130" r="22" fill="#94a3b8"/>
+  <polygon points="220,220 380,220 330,150 290,190 260,165" fill="#94a3b8"/>
+  <text x="300" y="265" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Illustration</text>
+</svg>
