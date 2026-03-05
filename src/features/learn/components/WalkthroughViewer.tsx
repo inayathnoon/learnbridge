@@ -44,8 +44,19 @@ export function WalkthroughViewer({
 
   // Sync terminal quiz states to session outcome (once)
   useEffect(() => {
-    if (quizStep === "complete") markCompleted().catch(() => {});
-    if (quizStep === "stuck") markStuck().catch(() => {});
+    if (quizStep === "complete") {
+      markCompleted().catch(() => {});
+    }
+    if (quizStep === "stuck") {
+      markStuck().catch(() => {});
+      if (sessionId) {
+        fetch("/api/alerts/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ sessionId, subsectionId }),
+        }).catch(() => {});
+      }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quizStep]);
 
