@@ -55,7 +55,7 @@ export default async function LearnSubsectionPage({ params }: Props) {
 
   const { data: questionsData } = await supabase
     .from("questions")
-    .select("id, level, prompt, options, correct_index")
+    .select("id, level, prompt, options, correct_index, explanation")
     .eq("subsection_id", subsection.id)
     .order("level");
 
@@ -66,6 +66,7 @@ export default async function LearnSubsectionPage({ params }: Props) {
     prompt: q.prompt as string,
     options: q.options as string[],
     correctIndex: q.correct_index as number,
+    explanation: q.explanation as string | undefined,
   }));
 
   return (

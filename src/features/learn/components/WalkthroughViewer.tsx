@@ -38,6 +38,7 @@ export function WalkthroughViewer({
   const {
     step: quizStep,
     currentQuestion,
+    lastAnsweredQuestion,
     answer,
     advance,
   } = useQuizEngine(questions);
@@ -144,6 +145,7 @@ export function WalkthroughViewer({
             question={currentQuestion}
             onAnswer={handleAnswer}
             onAdvance={advance}
+            explanationText={lastAnsweredQuestion?.explanation}
           />
         </div>
       )}

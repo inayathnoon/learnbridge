@@ -15,6 +15,7 @@ export type { QuizStep };
 type UseQuizEngineResult = {
   step: QuizStep;
   currentQuestion: QuizQuestion | null;
+  lastAnsweredQuestion: QuizQuestion | null;
   isExplanation: boolean;
   answer: (correct: boolean) => void;
   advance: () => void;
@@ -34,6 +35,8 @@ export function useQuizEngine(questions: QuizQuestion[]): UseQuizEngineResult {
   const [questionCache, setQuestionCache] = useState<
     Partial<Record<QuizStep, QuizQuestion>>
   >({});
+  const [lastAnsweredQuestion, setLastAnsweredQuestion] =
+    useState<QuizQuestion | null>(null);
 
   const currentLevel = stepToLevel(step);
 
@@ -46,6 +49,7 @@ export function useQuizEngine(questions: QuizQuestion[]): UseQuizEngineResult {
   const answer = useCallback(
     (correct: boolean) => {
       const event = correct ? "answer_correct" : "answer_wrong";
+      setLastAnsweredQuestion(currentQuestion);
       setStep((current) => {
         const next = transition(current, event);
         const nextLevel = stepToLevel(next);
@@ -80,6 +84,7 @@ export function useQuizEngine(questions: QuizQuestion[]): UseQuizEngineResult {
   return {
     step,
     currentQuestion,
+    lastAnsweredQuestion,
     isExplanation: isExplanationStep(step),
     answer,
     advance,
