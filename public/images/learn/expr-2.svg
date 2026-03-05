@@ -1,0 +1,25 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#eff6ff"/>
+  <text x="240" y="26" text-anchor="middle" font-size="14" fill="#64748b">Rahul has n marbles and gets 5 more</text>
+  <!-- Group n marbles -->
+  <rect x="28" y="50" width="148" height="100" rx="12" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <circle cx="65" cy="90" r="14" fill="#3b82f6"/><circle cx="98" cy="90" r="14" fill="#60a5fa"/>
+  <circle cx="131" cy="90" r="14" fill="#93c5fd"/><circle cx="65" cy="122" r="14" fill="#2563eb"/>
+  <circle cx="98" cy="122" r="14" fill="#3b82f6"/>
+  <text x="102" y="168" text-anchor="middle" font-size="22" font-weight="bold" fill="#1d4ed8">n marbles</text>
+  <!-- Plus -->
+  <text x="196" y="108" text-anchor="middle" font-size="36" font-weight="bold" fill="#64748b">+</text>
+  <!-- 5 more marbles -->
+  <rect x="220" y="50" width="110" height="100" rx="12" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <circle cx="252" cy="90" r="14" fill="#10b981"/><circle cx="285" cy="90" r="14" fill="#34d399"/>
+  <circle cx="252" cy="122" r="14" fill="#059669"/><circle cx="285" cy="122" r="14" fill="#10b981"/>
+  <circle cx="268" cy="56" r="10" fill="#6ee7b7"/>
+  <text x="275" y="168" text-anchor="middle" font-size="22" font-weight="bold" fill="#15803d">5 more</text>
+  <!-- Equals + result -->
+  <text x="348" y="108" text-anchor="middle" font-size="36" font-weight="bold" fill="#64748b">=</text>
+  <rect x="368" y="62" width="96" height="76" rx="12" fill="#fef3c7" stroke="#fde68a" stroke-width="2"/>
+  <text x="416" y="110" text-anchor="middle" font-size="32" font-weight="bold" fill="#d97706">n+5</text>
+  <!-- Bottom -->
+  <text x="240" y="206" text-anchor="middle" font-size="15" font-weight="600" fill="#1d4ed8">Expression: n + 5</text>
+  <text x="240" y="232" text-anchor="middle" font-size="13" fill="#64748b">We don't know n yet — the expression captures the idea</text>
+</svg>

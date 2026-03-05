@@ -1,0 +1,25 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#f0f9ff"/>
+  <text x="240" y="28" text-anchor="middle" font-size="14" fill="#64748b">In maths, we use a letter instead of ?</text>
+  <!-- Old form -->
+  <rect x="30" y="46" width="180" height="84" rx="14" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="120" y="70" text-anchor="middle" font-size="12" fill="#94a3b8">before</text>
+  <text x="120" y="112" text-anchor="middle" font-size="38" font-weight="bold" fill="#94a3b8">3 + ? = 7</text>
+  <!-- Arrow -->
+  <defs>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <path d="M 218 88 L 248 88" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#a3)"/>
+  <!-- New form -->
+  <rect x="252" y="46" width="200" height="84" rx="14" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <text x="352" y="70" text-anchor="middle" font-size="12" fill="#3b82f6">now</text>
+  <text x="352" y="112" text-anchor="middle" font-size="38" font-weight="bold" fill="#1d4ed8">3 + x = 7</text>
+  <!-- Callout on x -->
+  <text x="324" y="150" text-anchor="middle" font-size="12" fill="#3b82f6">↑ x replaces ?</text>
+  <!-- Bottom -->
+  <text x="240" y="186" text-anchor="middle" font-size="14" fill="#475569">x is the unknown — the number we need to find</text>
+  <text x="240" y="215" text-anchor="middle" font-size="20" font-weight="bold" fill="#1d4ed8">3 + x = 7</text>
+  <text x="240" y="248" text-anchor="middle" font-size="13" fill="#64748b">We call this an equation</text>
+</svg>

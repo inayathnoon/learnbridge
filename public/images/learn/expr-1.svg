@@ -1,0 +1,18 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#f8fafc"/>
+  <text x="240" y="26" text-anchor="middle" font-size="14" fill="#64748b">An expression is a maths phrase — no equals sign</text>
+  <!-- Expression card -->
+  <rect x="28" y="44" width="196" height="110" rx="14" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="126" y="76" text-anchor="middle" font-size="13" font-weight="600" fill="#15803d">EXPRESSION</text>
+  <text x="126" y="120" text-anchor="middle" font-size="38" font-weight="bold" fill="#166534">n + 5</text>
+  <text x="126" y="147" text-anchor="middle" font-size="12" fill="#4ade80">✓ no equals sign</text>
+  <!-- Equation card -->
+  <rect x="256" y="44" width="196" height="110" rx="14" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <text x="354" y="76" text-anchor="middle" font-size="13" font-weight="600" fill="#1d4ed8">EQUATION</text>
+  <text x="354" y="120" text-anchor="middle" font-size="32" font-weight="bold" fill="#1e40af">n + 5 = 8</text>
+  <text x="354" y="147" text-anchor="middle" font-size="12" fill="#60a5fa">has an = sign</text>
+  <!-- Bottom -->
+  <text x="240" y="186" text-anchor="middle" font-size="14" fill="#475569">An expression shows a maths idea using variables</text>
+  <text x="240" y="210" text-anchor="middle" font-size="14" fill="#475569">and numbers — but it doesn't have an = sign</text>
+  <text x="240" y="244" text-anchor="middle" font-size="13" font-weight="600" fill="#3b82f6">Examples: n + 5    3x    y - 2    2a + 1</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#f0fdf4"/>
+  <text x="240" y="26" text-anchor="middle" font-size="14" fill="#64748b">The formula 2n works for every position!</text>
+  <!-- 4 verification cards -->
+  <rect x="16" y="44" width="100" height="100" rx="12" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="66" y="72" text-anchor="middle" font-size="12" fill="#64748b">position 1</text>
+  <text x="66" y="100" text-anchor="middle" font-size="24" font-weight="bold" fill="#166534">2×1</text>
+  <text x="66" y="130" text-anchor="middle" font-size="24" font-weight="bold" fill="#059669">= 2 ✓</text>
+  <rect x="126" y="44" width="100" height="100" rx="12" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="176" y="72" text-anchor="middle" font-size="12" fill="#64748b">position 2</text>
+  <text x="176" y="100" text-anchor="middle" font-size="24" font-weight="bold" fill="#166534">2×2</text>
+  <text x="176" y="130" text-anchor="middle" font-size="24" font-weight="bold" fill="#059669">= 4 ✓</text>
+  <rect x="236" y="44" width="100" height="100" rx="12" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="286" y="72" text-anchor="middle" font-size="12" fill="#64748b">position 3</text>
+  <text x="286" y="100" text-anchor="middle" font-size="24" font-weight="bold" fill="#166534">2×3</text>
+  <text x="286" y="130" text-anchor="middle" font-size="24" font-weight="bold" fill="#059669">= 6 ✓</text>
+  <rect x="346" y="44" width="118" height="100" rx="12" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+  <text x="405" y="72" text-anchor="middle" font-size="12" fill="#92400e">position 10</text>
+  <text x="405" y="100" text-anchor="middle" font-size="24" font-weight="bold" fill="#b45309">2×10</text>
+  <text x="405" y="130" text-anchor="middle" font-size="24" font-weight="bold" fill="#d97706">= 20!</text>
+  <!-- Sequence reminder -->
+  <text x="240" y="175" text-anchor="middle" font-size="14" fill="#475569">Sequence: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20…</text>
+  <!-- Bottom -->
+  <text x="240" y="210" text-anchor="middle" font-size="15" font-weight="600" fill="#059669">The formula lets us skip ahead to any term</text>
+  <text x="240" y="238" text-anchor="middle" font-size="14" font-weight="700" fill="#166534">nth term = 2n</text>
+</svg>

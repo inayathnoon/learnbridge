@@ -1,0 +1,30 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#faf5ff"/>
+  <text x="240" y="26" text-anchor="middle" font-size="14" fill="#64748b">We can write the rule using algebra</text>
+  <!-- Formula box -->
+  <rect x="100" y="42" width="280" height="64" rx="16" fill="#7c3aed"/>
+  <text x="240" y="72" text-anchor="middle" font-size="14" fill="#ede9fe">nth term =</text>
+  <text x="240" y="98" text-anchor="middle" font-size="28" font-weight="bold" fill="white">2n</text>
+  <!-- Table -->
+  <rect x="36" y="124" width="408" height="96" rx="12" fill="white" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- Header -->
+  <rect x="36" y="124" width="408" height="30" rx="12" fill="#f3e8ff"/>
+  <text x="36" y="124" width="408" height="30" fill="transparent"/>
+  <text x="138" y="144" text-anchor="middle" font-size="13" font-weight="600" fill="#7c3aed">position (n)</text>
+  <text x="342" y="144" text-anchor="middle" font-size="13" font-weight="600" fill="#7c3aed">term (2n)</text>
+  <line x1="240" y1="124" x2="240" y2="220" stroke="#e9d5ff" stroke-width="1.5"/>
+  <!-- Row 1 -->
+  <text x="80" y="170" text-anchor="middle" font-size="15" fill="#475569">n = 1</text>
+  <text x="300" y="170" text-anchor="middle" font-size="15" fill="#475569">2 × 1 =</text>
+  <text x="380" y="170" text-anchor="middle" font-size="15" font-weight="bold" fill="#7c3aed">2</text>
+  <!-- Row 2 -->
+  <text x="80" y="194" text-anchor="middle" font-size="15" fill="#475569">n = 2</text>
+  <text x="300" y="194" text-anchor="middle" font-size="15" fill="#475569">2 × 2 =</text>
+  <text x="380" y="194" text-anchor="middle" font-size="15" font-weight="bold" fill="#7c3aed">4</text>
+  <!-- Row 3 -->
+  <text x="80" y="218" text-anchor="middle" font-size="15" fill="#475569">n = 3</text>
+  <text x="300" y="218" text-anchor="middle" font-size="15" fill="#475569">2 × 3 =</text>
+  <text x="380" y="218" text-anchor="middle" font-size="15" font-weight="bold" fill="#7c3aed">6</text>
+  <!-- Bottom -->
+  <text x="240" y="252" text-anchor="middle" font-size="13" fill="#64748b">The formula gives any term in the pattern</text>
+</svg>

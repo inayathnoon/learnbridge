@@ -1,0 +1,22 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#f8fafc"/>
+  <text x="240" y="26" text-anchor="middle" font-size="14" fill="#64748b">Expressions use variables and numbers together</text>
+  <!-- Card 1: add -->
+  <rect x="16" y="48" width="136" height="110" rx="14" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <text x="84" y="80" text-anchor="middle" font-size="12" fill="#64748b">add</text>
+  <text x="84" y="125" text-anchor="middle" font-size="36" font-weight="bold" fill="#1d4ed8">n + 4</text>
+  <text x="84" y="150" text-anchor="middle" font-size="12" fill="#94a3b8">n plus 4</text>
+  <!-- Card 2: subtract -->
+  <rect x="172" y="48" width="136" height="110" rx="14" fill="#fce7f3" stroke="#f9a8d4" stroke-width="2"/>
+  <text x="240" y="80" text-anchor="middle" font-size="12" fill="#64748b">subtract</text>
+  <text x="240" y="125" text-anchor="middle" font-size="36" font-weight="bold" fill="#be185d">n − 2</text>
+  <text x="240" y="150" text-anchor="middle" font-size="12" fill="#94a3b8">n minus 2</text>
+  <!-- Card 3: multiply -->
+  <rect x="328" y="48" width="136" height="110" rx="14" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="396" y="80" text-anchor="middle" font-size="12" fill="#64748b">multiply</text>
+  <text x="396" y="125" text-anchor="middle" font-size="36" font-weight="bold" fill="#166534">3n</text>
+  <text x="396" y="150" text-anchor="middle" font-size="12" fill="#94a3b8">3 times n</text>
+  <!-- Bottom -->
+  <text x="240" y="194" text-anchor="middle" font-size="14" fill="#475569">The variable n just means "some number we don't know"</text>
+  <text x="240" y="220" text-anchor="middle" font-size="14" fill="#475569">The expression describes what we'd do with it</text>
+</svg>

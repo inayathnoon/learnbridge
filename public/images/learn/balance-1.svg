@@ -1,0 +1,30 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#fef9f0"/>
+  <text x="240" y="28" text-anchor="middle" font-size="14" fill="#64748b">An equation is like a balanced scale</text>
+  <!-- Scale base and pole -->
+  <rect x="214" y="168" width="52" height="14" rx="4" fill="#92400e"/>
+  <rect x="232" y="80" width="16" height="90" rx="4" fill="#b45309"/>
+  <!-- Balance beam -->
+  <rect x="60" y="76" width="360" height="12" rx="6" fill="#d97706"/>
+  <!-- Left pan strings -->
+  <line x1="110" y1="88" x2="90" y2="130" stroke="#92400e" stroke-width="2"/>
+  <line x1="160" y1="88" x2="180" y2="130" stroke="#92400e" stroke-width="2"/>
+  <!-- Left pan -->
+  <rect x="82" y="130" width="106" height="14" rx="4" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+  <!-- Left weights: x+5 -->
+  <rect x="88" y="104" width="52" height="30" rx="6" fill="#3b82f6"/>
+  <text x="114" y="124" text-anchor="middle" font-size="16" font-weight="bold" fill="white">x+5</text>
+  <!-- Right pan strings -->
+  <line x1="320" y1="88" x2="300" y2="130" stroke="#92400e" stroke-width="2"/>
+  <line x1="370" y1="88" x2="390" y2="130" stroke="#92400e" stroke-width="2"/>
+  <!-- Right pan -->
+  <rect x="292" y="130" width="106" height="14" rx="4" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+  <!-- Right weight: 12 -->
+  <rect x="318" y="104" width="52" height="30" rx="6" fill="#10b981"/>
+  <text x="344" y="124" text-anchor="middle" font-size="16" font-weight="bold" fill="white">12</text>
+  <!-- = sign in middle -->
+  <text x="240" y="160" text-anchor="middle" font-size="20" font-weight="bold" fill="#d97706">=</text>
+  <!-- Bottom -->
+  <text x="240" y="210" text-anchor="middle" font-size="16" font-weight="600" fill="#1d4ed8">Both sides must be equal</text>
+  <text x="240" y="240" text-anchor="middle" font-size="13" fill="#64748b">The = sign is the middle of the scale</text>
+</svg>

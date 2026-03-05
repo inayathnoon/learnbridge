@@ -1,0 +1,33 @@
+<svg width="480" height="260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <rect width="480" height="260" fill="#f0fdf4"/>
+  <text x="240" y="28" text-anchor="middle" font-size="14" fill="#64748b">The rule is: add 2 each time</text>
+  <!-- Number chain with arrows -->
+  <defs>
+    <marker id="a7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+  <!-- Numbers in circles -->
+  <circle cx="48" cy="110" r="32" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="48" y="118" text-anchor="middle" font-size="28" font-weight="bold" fill="#166534">2</text>
+  <path d="M 84 110 L 112 110" stroke="#10b981" stroke-width="2.5" marker-end="url(#a7)"/>
+  <text x="98" y="100" text-anchor="middle" font-size="13" font-weight="600" fill="#059669">+2</text>
+  <circle cx="144" cy="110" r="32" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="144" y="118" text-anchor="middle" font-size="28" font-weight="bold" fill="#166534">4</text>
+  <path d="M 180 110 L 208 110" stroke="#10b981" stroke-width="2.5" marker-end="url(#a7)"/>
+  <text x="194" y="100" text-anchor="middle" font-size="13" font-weight="600" fill="#059669">+2</text>
+  <circle cx="240" cy="110" r="32" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="240" y="118" text-anchor="middle" font-size="28" font-weight="bold" fill="#166534">6</text>
+  <path d="M 276 110 L 304 110" stroke="#10b981" stroke-width="2.5" marker-end="url(#a7)"/>
+  <text x="290" y="100" text-anchor="middle" font-size="13" font-weight="600" fill="#059669">+2</text>
+  <circle cx="336" cy="110" r="32" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="336" y="118" text-anchor="middle" font-size="28" font-weight="bold" fill="#166534">8</text>
+  <path d="M 372 110 L 400 110" stroke="#10b981" stroke-width="2.5" marker-end="url(#a7)"/>
+  <text x="386" y="100" text-anchor="middle" font-size="13" font-weight="600" fill="#059669">+2</text>
+  <circle cx="432" cy="110" r="32" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+  <text x="432" y="118" text-anchor="middle" font-size="28" font-weight="bold" fill="#d97706">10</text>
+  <!-- Bottom -->
+  <text x="240" y="178" text-anchor="middle" font-size="16" font-weight="600" fill="#059669">Rule: add 2 each time</text>
+  <text x="240" y="208" text-anchor="middle" font-size="14" fill="#475569">This is called an arithmetic sequence</text>
+  <text x="240" y="246" text-anchor="middle" font-size="13" fill="#64748b">The number added each time is the common difference</text>
+</svg>
