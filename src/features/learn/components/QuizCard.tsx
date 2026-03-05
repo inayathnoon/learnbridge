@@ -54,7 +54,7 @@ export function QuizCard({
           Let&apos;s review
         </h2>
         <p className="mb-6 text-blue-800">
-          {explanationText ?? "Let&apos;s look at this again carefully."}
+          {explanationText ?? "Let's look at this again carefully."}
         </p>
         <button
           onClick={onAdvance}
