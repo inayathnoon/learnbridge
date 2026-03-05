@@ -14,7 +14,10 @@ async function seed() {
   for (const topic of seedData.topics) {
     const { data: topicRow, error: topicErr } = await supabase
       .from("topics")
-      .upsert({ title: topic.title, slug: topic.slug, order: topic.order }, { onConflict: "slug" })
+      .upsert(
+        { title: topic.title, slug: topic.slug, order: topic.order },
+        { onConflict: "slug" }
+      )
       .select()
       .single();
 
@@ -57,9 +60,9 @@ async function seed() {
         const { error: qErr } = await supabase.from("questions").insert({
           subsection_id: subRow.id,
           level: q.level,
-          content: q.content,
+          prompt: q.prompt,
           options: q.options,
-          correct_answer: q.correct_answer,
+          correct_index: q.correct_index,
           explanation: q.explanation,
         });
 

@@ -1,9 +1,180 @@
 {
   "topics": [
     {
+      "title": "Introduction to Algebra",
+      "slug": "intro-algebra",
+      "order": 1,
+      "subsections": [
+        {
+          "title": "What Is a Variable?",
+          "slug": "what-is-a-variable",
+          "order": 1,
+          "walkthrough_steps": [
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "Sometimes in maths, we don't know the exact number. We use a letter to represent it. This letter is called a variable!"
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "For example: if you have some pencils in a box and you don't know how many, we can call that number 'n'. So n = number of pencils."
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "A variable can be any letter — x, y, n, or even 'a'. It's just a placeholder for a number we haven't found yet."
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "If n = 5, that means the box has 5 pencils. If someone adds 2 more, we write: n + 2 = 7. We used the variable to write a rule!"
+            }
+          ],
+          "coaching_guide": "Show your child a cup with some coins inside. Tell them: 'I don't know how many coins are here — let's call that number n. If I add 3 more and now there are 8, how do we find n?' Let them figure out n = 5. Then try: 'If n = 3 pencils and you get 4 more, how many do you have?' The goal is comfort with letters standing in for unknown numbers.",
+          "questions": [
+            {
+              "level": 1,
+              "prompt": "Which of these is a variable?",
+              "options": ["5", "x", "10", "3"],
+              "correct_index": 1,
+              "explanation": "A variable is a letter that stands for an unknown number. 'x' is a variable — the others are all known numbers."
+            },
+            {
+              "level": 1,
+              "prompt": "If n = 4, what is n + 3?",
+              "options": ["5", "6", "7", "8"],
+              "correct_index": 2,
+              "explanation": "Replace n with 4: n + 3 = 4 + 3 = 7."
+            },
+            {
+              "level": 2,
+              "prompt": "A bag has 'b' books. If b = 6, how many books are there?",
+              "options": ["4", "5", "6", "7"],
+              "correct_index": 2,
+              "explanation": "The variable b stands for the number of books. Since b = 6, there are 6 books."
+            },
+            {
+              "level": 2,
+              "prompt": "If y = 8, what is y - 3?",
+              "options": ["3", "4", "5", "6"],
+              "correct_index": 2,
+              "explanation": "Replace y with 8: y - 3 = 8 - 3 = 5."
+            },
+            {
+              "level": 3,
+              "prompt": "If a = 5, what is 2a?",
+              "options": ["7", "8", "9", "10"],
+              "correct_index": 3,
+              "explanation": "2a means 2 × a. Replace a with 5: 2 × 5 = 10."
+            },
+            {
+              "level": 3,
+              "prompt": "If m = 3, what is m + m + m?",
+              "options": ["6", "9", "12", "3"],
+              "correct_index": 1,
+              "explanation": "m + m + m = 3m = 3 × 3 = 9."
+            },
+            {
+              "level": 4,
+              "prompt": "If 3n = 12, what is n?",
+              "options": ["3", "4", "5", "6"],
+              "correct_index": 1,
+              "explanation": "3n = 12 means 3 × n = 12. Divide both sides by 3: n = 12 ÷ 3 = 4."
+            },
+            {
+              "level": 4,
+              "prompt": "If 2k - 1 = 7, what is k?",
+              "options": ["3", "4", "5", "6"],
+              "correct_index": 1,
+              "explanation": "2k - 1 = 7. Add 1: 2k = 8. Divide by 2: k = 4. Check: 2(4) - 1 = 7 ✓"
+            }
+          ]
+        },
+        {
+          "title": "Writing Expressions",
+          "slug": "writing-expressions",
+          "order": 2,
+          "walkthrough_steps": [
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "An expression is a maths phrase — it uses numbers and variables but doesn't have an equals sign."
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "Example: if Rahul has 'n' marbles and gets 5 more, we write the expression: n + 5."
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "If Priya has 3 times as many stickers as Mia, and Mia has 's' stickers, we write: 3s (which means 3 × s)."
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "Expressions can be added, subtracted, or multiplied. The variable just means 'some number we don't know yet'."
+            }
+          ],
+          "coaching_guide": "Tell a story: 'Arjun has some sweets. He gives away 4. How do we write that?' Let them say 's - 4' if s = starting sweets. Then: 'Priya bakes twice as many cookies as her mum. If mum bakes m cookies, write Priya's amount.' (Answer: 2m.) Keep it in story form — let them translate words to symbols, not the other way around.",
+          "questions": [
+            {
+              "level": 1,
+              "prompt": "Riya has 's' sweets and eats 2. Which expression shows how many are left?",
+              "options": ["s + 2", "s - 2", "2s", "s × 2"],
+              "correct_index": 1,
+              "explanation": "Eating 2 means we subtract: s - 2."
+            },
+            {
+              "level": 1,
+              "prompt": "Raj has 'n' books. He gets 4 more. Which expression shows the total?",
+              "options": ["n - 4", "4 - n", "n + 4", "4n"],
+              "correct_index": 2,
+              "explanation": "Getting more means addition: n + 4."
+            },
+            {
+              "level": 2,
+              "prompt": "If x = 6, what is the value of x + 4?",
+              "options": ["8", "9", "10", "12"],
+              "correct_index": 2,
+              "explanation": "Replace x with 6: 6 + 4 = 10."
+            },
+            {
+              "level": 2,
+              "prompt": "If y = 5, what is 3y?",
+              "options": ["8", "12", "15", "20"],
+              "correct_index": 2,
+              "explanation": "3y = 3 × y = 3 × 5 = 15."
+            },
+            {
+              "level": 3,
+              "prompt": "Which expression means 'twice a number minus 3'?",
+              "options": ["2 + n - 3", "2n - 3", "n ÷ 2 - 3", "3 - 2n"],
+              "correct_index": 1,
+              "explanation": "'Twice a number' = 2n. Then minus 3 = 2n - 3."
+            },
+            {
+              "level": 3,
+              "prompt": "If a = 4, what is 2a + 1?",
+              "options": ["7", "8", "9", "10"],
+              "correct_index": 2,
+              "explanation": "2a + 1 = 2(4) + 1 = 8 + 1 = 9."
+            },
+            {
+              "level": 4,
+              "prompt": "If the expression 3n + 2 equals 17, what is n?",
+              "options": ["4", "5", "6", "7"],
+              "correct_index": 1,
+              "explanation": "3n + 2 = 17. Subtract 2: 3n = 15. Divide by 3: n = 5. Check: 3(5) + 2 = 17 ✓"
+            },
+            {
+              "level": 4,
+              "prompt": "A shop sells pens for ₹p each. If you buy 4 pens and pay ₹28, what is p?",
+              "options": ["5", "6", "7", "8"],
+              "correct_index": 2,
+              "explanation": "4p = 28. Divide by 4: p = 7."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Simple Equations",
       "slug": "simple-equations",
-      "order": 1,
+      "order": 2,
       "subsections": [
         {
           "title": "Finding the Unknown",
@@ -20,46 +191,245 @@
             },
             {
               "image_url": "/images/placeholder.svg",
-              "caption": "In math, we use a letter like 'x' instead of '?'. So we write: 3 + x = 7"
+              "caption": "In maths, we use a letter like 'x' instead of '?'. So we write: 3 + x = 7."
             },
             {
               "image_url": "/images/placeholder.svg",
-              "caption": "To find x, we ask: what number plus 3 gives us 7? We can subtract: 7 - 3 = 4. So x = 4!"
+              "caption": "To find x, we ask: what number plus 3 gives us 7? We subtract: 7 - 3 = 4. So x = 4!"
             },
             {
               "image_url": "/images/placeholder.svg",
-              "caption": "Let's check: 3 + 4 = 7 ✓ Yes! The unknown value is 4. You just solved an equation!"
+              "caption": "Check: 3 + 4 = 7 ✓ You just solved an equation!"
             }
           ],
-          "coaching_guide": "Ask your child: if I gave you 3 apples and now you have 7, how many did you have before? That's the same as 3 + x = 7. Let them say the number out loud. Then try with different numbers: 5 + x = 9. Let them use their fingers if they want — the goal is understanding the idea of a missing number, not mental math speed.",
+          "coaching_guide": "Ask your child: if I gave you 3 apples and now you have 7, how many did you have before? That's the same as 3 + x = 7. Let them say the number out loud. Then try: 5 + x = 9. Use their fingers if needed — the goal is the idea of a missing number, not mental math speed.",
           "questions": [
             {
               "level": 1,
-              "content": "2 + ? = 5. What is the missing number?",
+              "prompt": "2 + ? = 5. What is the missing number?",
               "options": ["2", "3", "4", "5"],
-              "correct_answer": "3",
-              "explanation": "We need a number that, when added to 2, gives 5. Count up from 2: 3, 4, 5 — that's 3 steps. So the answer is 3."
+              "correct_index": 1,
+              "explanation": "We need a number that added to 2 gives 5. Count up from 2: 3, 4, 5 — that's 3 steps. Answer: 3."
+            },
+            {
+              "level": 1,
+              "prompt": "? + 1 = 6. What is the missing number?",
+              "options": ["4", "5", "6", "7"],
+              "correct_index": 1,
+              "explanation": "6 - 1 = 5. So the missing number is 5."
             },
             {
               "level": 2,
-              "content": "? + 4 = 9. What is the missing number?",
+              "prompt": "? + 4 = 9. What is the missing number?",
               "options": ["4", "5", "6", "3"],
-              "correct_answer": "5",
-              "explanation": "We need: ? + 4 = 9. Subtract 4 from 9: 9 - 4 = 5. So the missing number is 5."
+              "correct_index": 1,
+              "explanation": "Subtract 4 from 9: 9 - 4 = 5. The missing number is 5."
+            },
+            {
+              "level": 2,
+              "prompt": "x - 3 = 4. What is x?",
+              "options": ["1", "5", "7", "9"],
+              "correct_index": 2,
+              "explanation": "Add 3 to both sides: x = 4 + 3 = 7. Check: 7 - 3 = 4 ✓"
             },
             {
               "level": 3,
-              "content": "x + 6 = 14. What is x?",
+              "prompt": "x + 6 = 14. What is x?",
               "options": ["6", "7", "8", "9"],
-              "correct_answer": "8",
-              "explanation": "x + 6 = 14. To find x, subtract 6 from both sides: x = 14 - 6 = 8."
+              "correct_index": 2,
+              "explanation": "Subtract 6 from both sides: x = 14 - 6 = 8. Check: 8 + 6 = 14 ✓"
+            },
+            {
+              "level": 3,
+              "prompt": "3x = 18. What is x?",
+              "options": ["4", "5", "6", "7"],
+              "correct_index": 2,
+              "explanation": "Divide both sides by 3: x = 18 ÷ 3 = 6. Check: 3 × 6 = 18 ✓"
             },
             {
               "level": 4,
-              "content": "If 2x + 3 = 11, what is x?",
+              "prompt": "If 2x + 3 = 11, what is x?",
               "options": ["3", "4", "5", "6"],
-              "correct_answer": "4",
-              "explanation": "2x + 3 = 11. First subtract 3: 2x = 8. Then divide by 2: x = 4. Check: 2(4) + 3 = 8 + 3 = 11 ✓"
+              "correct_index": 1,
+              "explanation": "Subtract 3: 2x = 8. Divide by 2: x = 4. Check: 2(4) + 3 = 11 ✓"
+            },
+            {
+              "level": 4,
+              "prompt": "If 5x - 2 = 23, what is x?",
+              "options": ["4", "5", "6", "7"],
+              "correct_index": 1,
+              "explanation": "Add 2: 5x = 25. Divide by 5: x = 5. Check: 5(5) - 2 = 23 ✓"
+            }
+          ]
+        },
+        {
+          "title": "Both Sides of an Equation",
+          "slug": "both-sides",
+          "order": 2,
+          "walkthrough_steps": [
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "An equation is like a balanced scale. Both sides must weigh the same. The equals sign (=) is the middle of the scale."
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "If we add something to one side, we must add the same to the other side to keep the balance."
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "Example: x + 5 = 12. To find x, subtract 5 from both sides: x + 5 - 5 = 12 - 5 → x = 7."
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "This rule — whatever you do to one side, do the same to the other — always keeps the equation true."
+            }
+          ],
+          "coaching_guide": "Use a real scale or draw one. Put 7 blocks on each side. Now add 3 to the left — the scale tips. To balance, add 3 to the right too. Then connect this to equations: 'if I add 3 to x, I must add 3 to the other side too'. This visual makes the rule intuitive.",
+          "questions": [
+            {
+              "level": 1,
+              "prompt": "x + 4 = 10. What is x?",
+              "options": ["4", "5", "6", "7"],
+              "correct_index": 2,
+              "explanation": "Subtract 4 from both sides: x = 10 - 4 = 6."
+            },
+            {
+              "level": 1,
+              "prompt": "x - 2 = 5. What is x?",
+              "options": ["3", "5", "7", "9"],
+              "correct_index": 2,
+              "explanation": "Add 2 to both sides: x = 5 + 2 = 7."
+            },
+            {
+              "level": 2,
+              "prompt": "2x = 14. What is x?",
+              "options": ["5", "6", "7", "8"],
+              "correct_index": 2,
+              "explanation": "Divide both sides by 2: x = 14 ÷ 2 = 7."
+            },
+            {
+              "level": 2,
+              "prompt": "x ÷ 3 = 4. What is x?",
+              "options": ["7", "9", "11", "12"],
+              "correct_index": 3,
+              "explanation": "Multiply both sides by 3: x = 4 × 3 = 12."
+            },
+            {
+              "level": 3,
+              "prompt": "3x + 1 = 10. What is x?",
+              "options": ["2", "3", "4", "5"],
+              "correct_index": 1,
+              "explanation": "Subtract 1: 3x = 9. Divide by 3: x = 3. Check: 3(3) + 1 = 10 ✓"
+            },
+            {
+              "level": 3,
+              "prompt": "4x - 4 = 12. What is x?",
+              "options": ["3", "4", "5", "6"],
+              "correct_index": 1,
+              "explanation": "Add 4: 4x = 16. Divide by 4: x = 4. Check: 4(4) - 4 = 12 ✓"
+            },
+            {
+              "level": 4,
+              "prompt": "If 6x - 3 = 27, what is x?",
+              "options": ["4", "5", "6", "7"],
+              "correct_index": 1,
+              "explanation": "Add 3: 6x = 30. Divide by 6: x = 5. Check: 6(5) - 3 = 27 ✓"
+            },
+            {
+              "level": 4,
+              "prompt": "If x/4 + 2 = 7, what is x?",
+              "options": ["16", "18", "20", "24"],
+              "correct_index": 2,
+              "explanation": "Subtract 2: x/4 = 5. Multiply by 4: x = 20. Check: 20/4 + 2 = 5 + 2 = 7 ✓"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Patterns and Rules",
+      "slug": "patterns-rules",
+      "order": 3,
+      "subsections": [
+        {
+          "title": "Number Patterns",
+          "slug": "number-patterns",
+          "order": 1,
+          "walkthrough_steps": [
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "A pattern is a sequence that follows a rule. Look: 2, 4, 6, 8… what comes next?"
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "The rule here is: add 2 each time. So the next number is 10. We call this an arithmetic pattern."
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "We can write this pattern using algebra. If the first number is 2 and n is the position, the nth term = 2n."
+            },
+            {
+              "image_url": "/images/placeholder.svg",
+              "caption": "Position 1: 2×1=2, Position 2: 2×2=4, Position 3: 2×3=6. The formula works! This is algebra helping us describe a pattern."
+            }
+          ],
+          "coaching_guide": "Draw a matchstick pattern: 1 square = 4 sticks, 2 squares = 7 sticks, 3 squares = 10 sticks. Ask: 'How many sticks for 4 squares? 5 squares? 10 squares?' Let them find the pattern (add 3 each time). Then ask: 'Can you write a rule using n?' They don't have to use algebra yet — just spotting the add-3 pattern is enough.",
+          "questions": [
+            {
+              "level": 1,
+              "prompt": "What is the next number in this pattern? 5, 10, 15, 20, __",
+              "options": ["22", "24", "25", "30"],
+              "correct_index": 2,
+              "explanation": "The pattern adds 5 each time: 20 + 5 = 25."
+            },
+            {
+              "level": 1,
+              "prompt": "What is the rule for this pattern? 3, 6, 9, 12…",
+              "options": ["Add 2", "Add 3", "Multiply by 2", "Add 4"],
+              "correct_index": 1,
+              "explanation": "Each number is 3 more than the previous: 3, 6 (+3), 9 (+3), 12 (+3)."
+            },
+            {
+              "level": 2,
+              "prompt": "The pattern is: 4, 7, 10, 13… What is the 5th term?",
+              "options": ["14", "15", "16", "17"],
+              "correct_index": 2,
+              "explanation": "The pattern adds 3 each time: 13 + 3 = 16."
+            },
+            {
+              "level": 2,
+              "prompt": "If the rule is 'multiply by 3', and the first term is 2, what is the 3rd term?",
+              "options": ["8", "12", "18", "24"],
+              "correct_index": 2,
+              "explanation": "1st: 2, 2nd: 2×3=6, 3rd: 6×3=18."
+            },
+            {
+              "level": 3,
+              "prompt": "The nth term of a pattern is 3n. What is the 4th term?",
+              "options": ["9", "12", "15", "16"],
+              "correct_index": 1,
+              "explanation": "3n when n=4: 3×4=12."
+            },
+            {
+              "level": 3,
+              "prompt": "A pattern is 2, 5, 8, 11… Which formula gives the nth term?",
+              "options": ["2n", "3n - 1", "n + 3", "2n + 1"],
+              "correct_index": 1,
+              "explanation": "Try n=1: 3(1)-1=2 ✓, n=2: 3(2)-1=5 ✓, n=3: 3(3)-1=8 ✓. The formula is 3n-1."
+            },
+            {
+              "level": 4,
+              "prompt": "The nth term of a sequence is 2n + 3. What is the 6th term?",
+              "options": ["13", "15", "17", "19"],
+              "correct_index": 1,
+              "explanation": "2(6) + 3 = 12 + 3 = 15."
+            },
+            {
+              "level": 4,
+              "prompt": "If the nth term is n² (n squared), what is the 4th term?",
+              "options": ["8", "12", "16", "20"],
+              "correct_index": 2,
+              "explanation": "n² when n=4: 4² = 4×4 = 16."
             }
           ]
         }
